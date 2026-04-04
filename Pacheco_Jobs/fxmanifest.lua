@@ -1,27 +1,32 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'RealRP'
-description 'Tablet de Gestão de Mineração'
-
-ui_page 'ui/index.html'
-
-files {
-    'ui/index.html',
-    'ui/style.css',
-    'ui/script.js',
-    'ui/assets/*.png' -- Se tiveres imagens, coloca nesta pasta
-}
-
-client_scripts {
-    'client.lua'
-}
-
-server_scripts {
-    'server.lua'
-}
+description 'Pacheco Jobs - Sistema Modular com Tablet'
+version '1.0.0'
+autor 'Pacheco'
 
 shared_scripts {
     '@es_extended/imports.lua',
-    'config.lua'
+    'config.lua',
+    'jobs/*/config.lua' -- Lê as configs de todos os trabalhos
+}
+
+client_scripts {
+    'client/*.lua',
+    'jobs/*/client.lua' -- Lê os clients de todos os trabalhos
+}
+
+server_scripts {
+    '@oxmysql/lib/MySQL.lua', -- Assumindo que usas oxmysql (o padrão atual)
+    'server/*.lua',
+    'jobs/*/server.lua' -- Lê os servers de todos os trabalhos
+}
+
+ui_page 'html/index.html'
+
+files {
+    'html/index.html',
+    'html/style.css',
+    'html/script.js',
+    -- adiciona aqui imagens e outros assets do tablet
 }

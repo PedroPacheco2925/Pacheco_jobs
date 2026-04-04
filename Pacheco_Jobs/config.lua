@@ -1,11 +1,16 @@
 Config = {}
 
-Config.TabletPos = vector3(2569.49, 2720.20, 42.94) -- Localização do Vestiário
-
-Config.Items = {
-    ['stone'] = { label = "Pedra Bruta", price = 50 },
-    ['copper'] = { label = "Cobre", price = 200 },
-    ['iron'] = { label = "Ferro", price = 400 },
-    ['gold'] = { label = "Ouro", price = 800 },
-    ['diamond'] = { label = "Diamante", price = 1500 }
+-- Locais onde o jogador pode ir para abrir o tablet e gerir o respetivo trabalho
+Config.TabletLocations = {
+    ['miner'] = {
+        coords = vector3(256.45, 2845.89, 43.45), -- Substitui pelas coords reais do teu blip do mineiro
+        distanceToOpen = 2.0,
+        blip = {
+            enabled = true,
+            sprite = 318,
+            color = 5,
+            scale = 0.8,
+            label = "Tablet: Mineiro"
+        }
+    }
 }
